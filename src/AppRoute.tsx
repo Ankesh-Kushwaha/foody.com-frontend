@@ -5,6 +5,7 @@ import AuthCallbackPage from "./pages/AuthCallbackPage";
 import { UserProfilePage } from "./pages/UserProfilePage";
 import { ToastContainer } from 'react-toastify';
 import ProtectedRoute from "./auth/ProtectedRoute";
+import ManageRestaurantPage from "./pages/ManageRestaurantPage";
 
 
 const AppRoute = () => {
@@ -16,8 +17,12 @@ const AppRoute = () => {
         <Route element={<ProtectedRoute />}>
           <Route path="/user-profile" element={<Layout><UserProfilePage /></Layout>} />
         </Route>
+        <Route element={<ProtectedRoute />}>
+          <Route path="/manage-restaurant" element={<Layout><ManageRestaurantPage/></Layout>} />
+        </Route>
         <Route path="*" element={<Navigate to="/"/>}/>
       </Routes>
+
       <ToastContainer
         position="top-right"
         autoClose={5000}
